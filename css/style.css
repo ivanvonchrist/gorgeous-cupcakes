@@ -70,6 +70,7 @@ body {
     margin: 2em auto;
     font-size: 2em;
     line-height: 1.05em;
+    color: #E58C8A;
 }
 
 .item {
@@ -91,7 +92,8 @@ body {
 }
 
 .item h1 {
-    font-size: 1.375em;
+    font-size: 1em;
+    line-height: 1.375em;
 }
 
 #footer {
