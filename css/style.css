@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    font-family: futura-pt, sans-serif;
+    color: #3C3C3C;
+    background-color: whitesmoke;
+}
+
+#logo {
+    margin: 4em auto 2em auto;
+    text-align: center;
+}
+
+#logo h1 {
+    font-family: coquette, sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.05em;
+    color: #E58C8A;
+}
+
+#nav {
+    margin: 2em auto;
+    text-align: center;
+}
+
+#nav ul, #footer ul {
+    list-style: none;
+}
+
+#nav li {
+    display: inline-block;
+    margin: 1em 2em;
+    line-height: 1.375em;
+}
+
+#hero {
+    height: 550px;
+    background-image: url(../images/hero.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#hero-content p {
+    margin: 1em 2em;
+    font-size: 2em;
+    line-height: 1.05em;
+    font-weight: 700;
+    color: #3C3C3C;
+    min-width: 20%;
+}
+
+.content {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 80%;
+}
+
+.content h1 {
+    margin: 2em auto;
+}
+
+.item {
+    margin: 0 1em 2em 1em;
+    padding: 0 1em;
+    border: 1px solid #E58C8A;
+    background-color: #FFF;
+    flex-basis: 25%;
+    flex-grow: 1;
+}
+
+.item img, .item h1, .item p {
+    margin: 1em 1em !important;
+}
+
+.item img {
+    border-radius: 50%;
+    max-width: 60%;
+}
+
+#footer {
+    clear: both;
+    padding: 1em 0;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: lowercase;
+    font-size: 0.9em;
+    color: #FFF;
+    background-color: #E58C8A;
+}
+
+#footer a {
+    color: #FFF;
+    transition: 0.2s ease;
+}
+
+#footer a:hover {
+    color: #EEC0C6;
+}
+
+#footer ul {
+    margin: 1em 2em;
+    flex-basis: 25%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #3C3C3C;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    color: #E58C8A;
+}
+
+.alt-link {
+    color: #E58C8A;
+}
+
+button {
+    font-family: futura-pt, sans-serif;
+    font-size: 0.9em;
+    margin: 1em 2em;
+    padding: 0.75em 1.5em;
+    border: 1px solid #E58C8A;
+    background-color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #3C3C3C;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    color: #FFF;
+    background-color: #E58C8A;
+}
