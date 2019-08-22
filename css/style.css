@@ -68,6 +68,8 @@ body {
 
 .content h1 {
     margin: 2em auto;
+    font-size: 2em;
+    line-height: 1.05em;
 }
 
 .item {
@@ -86,6 +88,10 @@ body {
 .item img {
     border-radius: 50%;
     max-width: 60%;
+}
+
+.item h1 {
+    font-size: 1.375em;
 }
 
 #footer {
