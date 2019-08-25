@@ -1,3 +1,5 @@
+/* Clean CSS */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +15,8 @@ body {
     color: #3C3C3C;
     background-color: whitesmoke;
 }
+
+/* Header Section including Logo, Nav */
 
 #logo {
     margin: 4em auto 2em auto;
@@ -42,6 +46,8 @@ body {
     line-height: 1.375em;
 }
 
+/* Hero Section */
+
 #hero {
     height: 550px;
     background-image: url(../images/hero.png);
@@ -60,6 +66,8 @@ body {
     min-width: 20%;
 }
 
+/* Content Section */
+
 .content {
     margin: 0 auto;
     text-align: center;
@@ -67,19 +75,24 @@ body {
 }
 
 .content h1 {
-    margin: 2em auto;
+    margin: 1em auto;
     font-size: 2em;
     line-height: 1.05em;
     color: #E58C8A;
 }
 
+.content p {
+    margin: 1em auto;
+    line-height: 1.375em;
+}
+
 .item {
+    position: relative;
     margin: 0 1em 2em 1em;
     padding: 0 1em;
     border: 1px solid #E58C8A;
     background-color: #FFF;
     flex-basis: 25%;
-    flex-grow: 1;
 }
 
 .item img, .item h1, .item p {
@@ -96,10 +109,11 @@ body {
     line-height: 1.375em;
 }
 
+/* Footer Section */
+
 #footer {
-    clear: both;
-    padding: 1em 0;
     margin: 0 auto;
+    padding: 1em 0;
     text-align: center;
     text-transform: lowercase;
     font-size: 0.9em;
@@ -118,8 +132,10 @@ body {
 
 #footer ul {
     margin: 1em 2em;
-    flex-basis: 25%;
+    flex-basis: 20%;
 }
+
+/* Flex Definitions */
 
 .flex {
     display: flex;
@@ -129,11 +145,18 @@ body {
 
 .flex-row {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
+
+.item-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Links */
 
 a {
     text-decoration: none;
@@ -148,6 +171,23 @@ a:hover {
 .alt-link {
     color: #E58C8A;
 }
+
+/* Forms */
+
+form {
+    margin: 1em 2em;
+    text-align: center;
+}
+
+.account-forms > * {
+    width: 30%;
+}
+
+.account-forms label, .account-forms input {
+    margin-bottom: 1em;
+}
+
+/* Buttons and Input Styles */
 
 button {
     font-family: futura-pt, sans-serif;
@@ -165,4 +205,33 @@ button {
 button:hover {
     color: #FFF;
     background-color: #E58C8A;
+}
+
+.alt-button:hover {
+    color: #E58C8A;
+    background-color: #FFF;
+}
+
+input[type=text], input[type=password], input:-webkit-autofill {
+    margin: 1em auto;
+    padding: 0.75em 2em;
+    border: 1px solid #E58C8A;
+    font-family: futura-pt, sans-serif;
+    font-size: 1em;
+    line-height: 1.375em;
+    background-color: #FFF;
+}
+
+input[type=submit] {
+    font-family: futura-pt, sans-serif;
+    font-size: 0.9em;
+    margin: 0 1em;
+    padding: 0.75em 1.5em;
+    border: 1px solid #E58C8A;
+    background-color: #E58C8A;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFF;
+    transition: 0.2s ease;
+    display: inline-block;
 }
