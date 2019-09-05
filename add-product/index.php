@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- include session_start to carry session, check if user session exists and if not redirect to login page -->
+<?php
+session_start();
+if(!isset($_SESSION['user'])) {
+    header('location:../login/');
+}
+?>
 <html lang="en">
 <head>
     
@@ -10,7 +17,6 @@
     <link rel="stylesheet" href="../css/anicollection.css">
     <link rel="stylesheet" href="https://use.typekit.net/soa4xun.css">
     <script src="https://kit.fontawesome.com/55c4df76c1.js"></script>
-    <script src="../scripts/form_validate.js"></script>
     
 </head>
 <body>
@@ -24,7 +30,7 @@
             <li><a href="#">Contact</a></li>
             <li><a href="#" class="alt-link"><i class="fas fa-shopping-cart"></i> (0)</a></li>
             <?php
-                // check if a user session exists and present them either with login link or account/logout link 
+                // check if a user session exists and present them either with login link or account/logout link
                 if(!isset($_SESSION['user'])) {
                     echo "<li><a href=\"../login\" class=\"alt-link\">Login</a></li>";
                 } else {
@@ -35,37 +41,39 @@
         </ul>
     </div>
     <div class="content flex">
-        <h1>Create an Account</h1>
+        <h1>Add a Product</h1>
         <?php
-            //checks if there was an error with user input and echos appropriate message
-            if(isset($_GET['error'])) {
+            //check if there was a successful product add, echo appropriate message
+            //else check if there was an error
+            if(isset($_GET['success'])) {
+                echo "<p>Product added successfully. Add another?</p>";
+            } elseif(isset($_GET['error'])) {
                 $error = $_GET['error'];
                 switch ($error) {
                     case 1:
-                        echo "<p class=\"error\">Please enter a valid e-mail address.</p>";
+                        echo "<p class=\"error\">There was a problem. Please ensure all fields are filled out.</p>";
                         break;
                     case 2:
-                        echo "<p class=\"error\">Please ensure your password is more than 8 characters in length.</p>";
-                        break;
-                    case 3:
-                        echo "<p class=\"error\">Please ensure all fields are filled out.</p>";
+                        echo "<p class=\"error\">There was a problem. Please ensure the product price is filled and is a numeric value.</p>";
                         break;
                 }
             }
         ?>
-        <form name="create" class="account-forms" action="../model/create_account.php" method="post">
-            <label>First Name:</label><br>
-            <input type="text" name="firstName"><br>
-            <label>Last Name:</label><br>
-            <input type="text" name="lastName"><br>
-            <label>E-mail:</label><br>
-            <input type="text" name="email" placeholder="eg. susie@email.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'eg. susie@email.com'"><br>
-            <label>Username:</label><br>
-            <input type="text" name="username"><br>
-            <label>Password:</label><br>
-            <input type="password" name="password"><br>
-            <input type="submit" value="Register Account"><br>
-            <button class="alt-button" type="button" onclick="window.location='../../gorgeous-cupcakes/'">Cancel</button>
+        <form class="account-forms" action="../model/add_product.php" method="post">
+            <label>Product Name:</label><br>
+            <input type="text" name="productName"><br>
+            <label>Product Description:</label><br>
+            <input type="text" name="productDescription"><br>
+            <label>Product Price ($):</label><br>
+            <input type="text" name="productPrice"><br>
+            <label>Category:</label><br>
+            <select name="category">
+                <option value="1">Sweet</option>
+                <option value="2">Savoury</option>
+                <option value="3">Special</option>
+            </select><br>
+            <input type="submit" value="Add Product"><br>
+            <button class="alt-button" type="button" onclick="window.location='../your-account/'">Cancel</button>
         </form>
     </div>
     <div id="footer" class="flex-row">

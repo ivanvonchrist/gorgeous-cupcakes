@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<!-- include session_start to carry session, then use session_destroy to end the session -->
 <?php
 session_start();
 session_destroy();
@@ -21,11 +23,11 @@ session_destroy();
     </div>
     <div id="nav">
         <ul>
-            <li><a href="../../gorgeous-cupcakes/">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="../../gorgeous-cupcakes">Home</a></li>
+            <li><a href="../shop">Shop</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#" class="alt-link"><i class="fas fa-shopping-cart"></i> (0)</a></li>
-            <li><a href="../login/" class="alt-link">Login</a></li>
+            <li><a href="../login" class="alt-link">Login</a></li>
         </ul>
     </div>
     <div class="content flex">
@@ -34,10 +36,10 @@ session_destroy();
     </div>
     <div id="footer" class="flex-row">
         <ul>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="../../gorgeous-cupcakes">Home</a></li>
+            <li><a href="../shop">Shop</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="../login">Login</a></li>
         </ul>
         <p>&copy; <?php echo date("Y"); ?> Gorgeous Cupcakes</p>
         <ul>
@@ -46,6 +48,5 @@ session_destroy();
             <li><a href="#"><i class="fab fa-facebook"></i></a></li>
         </ul>
     </div>
-    <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script>
 </body>
 </html>

@@ -1,35 +1,47 @@
 <?php
 
-//connect to the database
-require('../model/conn.php');
+    //connect to the database
+    require('../model/database.php');
 
-//retrieve user input from form
+    //retrieve user input from form
 
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-//check password length
+    //check the e-mail is valid with filter_var and if not return an error
 
-if (strlen($password) < 8)
-{
-echo "<p>Password must be 8 characters or more.</p>";
-exit();
-}
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header('location:../create-account?error=1');
+        exit;
+    }
 
-//salt the password
+    //check the password is at least 9 characters in length and if not return an error
 
-$salt = md5(uniqid(rand(), true));
-$password = hash('sha256', $password.$salt);
+    if (strlen($password) < 9) {
+        header('location:../create-account?error=2');
+        exit();
+    }
+    
+    //check that no fields are empty
+    if (empty($firstName) or empty($lastName) or empty($email) or empty($username) or empty($password)) {
+        header('location:../create-account?error=3');
+        exit;
+    }
 
-//insert into database
+    //salt the password
 
-$sql = "INSERT INTO gorgeous_cupcakes.user (first_name, last_name, email, username, salt, password) VALUES ('$firstName', '$lastName', '$email', '$username', '$salt', '$password')";
+    $salt = md5(uniqid(rand(), true));
+    $password = hash('sha256', $password.$salt);
 
-$conn->exec($sql);
+    //insert into database
 
-header('location:../login/');
+    $sql = "INSERT INTO gorgeous_cupcakes.user (first_name, last_name, email, username, salt, password) VALUES ('$firstName', '$lastName', '$email', '$username', '$salt', '$password')";
+
+    $conn->exec($sql);
+
+    header('location:../login?success');
 
 ?>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     
@@ -18,14 +19,28 @@
     <div id="nav">
         <ul>
             <li><a href="../../gorgeous-cupcakes/">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="../shop">Shop</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#" class="alt-link"><i class="fas fa-shopping-cart"></i> (0)</a></li>
-            <li><a href="../login/" class="alt-link">Login</a></li>
+            <?php
+                //check if a user session exists and present them either with login link or account/logout link
+                if(!isset($_SESSION['user'])) {
+                    echo "<li><a href=\"../login\" class=\"alt-link\">Login</a></li>";
+                } else {
+                    echo "<li><a href=\"../your-account\">Your Account</a></li>";
+                    echo "<li><a href=\"../logout\" class=\"alt-link\">Logout</a></li>";
+                }
+            ?>
         </ul>
     </div>
     <div class="content flex">
         <h1>Login to your Account</h1>
+        <?php
+            //generic error handler, displays if any error has occured with user input on login
+            if(isset($_GET['error'])) {
+                echo "<p class=\"error\">There was a problem. Please ensure your username and password are correct, and try again.</p>";
+            }
+        ?>
         <form class="account-forms" action="../model/authentication.php" method="post">
             <label>Username:</label><br>
             <input type="text" name="username"><br>
@@ -37,10 +52,10 @@
     </div>
     <div id="footer" class="flex-row">
         <ul>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="../../gorgeous-cupcakes">Home</a></li>
+            <li><a href="../shop">Shop</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="../login">Login</a></li>
         </ul>
         <p>&copy; <?php echo date("Y"); ?> Gorgeous Cupcakes</p>
         <ul>
@@ -49,6 +64,5 @@
             <li><a href="#"><i class="fab fa-facebook"></i></a></li>
         </ul>
     </div>
-    <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script>
 </body>
 </html>
